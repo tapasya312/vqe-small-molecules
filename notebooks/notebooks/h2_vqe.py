@@ -18,10 +18,9 @@ ansatz = UCCSD(
     qubit_mapper=mapper,
 )
 
-print("params:", ansatz.num_parameters)
-
 optimizer = COBYLA(maxiter=200)
 vqe = VQE(estimator, ansatz, optimizer)
-result = vqe.compute_minimum_eigenvalue(qubit_ham)
+solver = GroundStateEigensolver(mapper, vqe)
+result = solver.solve(problem)
 
-print("energy:", result.eigenvalue)
+print("total energy:", result.total_energies[0])
