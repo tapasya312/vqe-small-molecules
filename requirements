@@ -1,0 +1,5 @@
+qiskit==2.0.3
+qiskit-aer==0.17.1
+qiskit-nature==0.8.0
+qiskit-algorithms==0.4.0
+pyscf
